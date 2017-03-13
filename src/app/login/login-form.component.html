@@ -1,0 +1,27 @@
+<div class="login-form">
+  <h2>Login</h2>
+  <form #f="ngForm" (ngSubmit)="login(username.viewModel, password.viewModel)">
+    <div class="input-field">
+      <label for="username">Username</label>
+      <input type="text" name="username" ngModel #username="ngModel"
+             [class.hasError]="username.invalid && username.untouched" 
+             required>
+      <div [hidden]="username.valid || username.pristine" 
+           class="alert alert-danger">
+        Username is required
+      </div>
+    </div>
+    <div class="input-field">
+      <label for="password">Password</label>
+      <input type="password" name="password" ngModel #password="ngModel" 
+             [class.hasError]="password.invalid && username.untouched" 
+             required>
+      <div [hidden]="password.valid || password.pristine" 
+           class="alert alert-danger">
+        Password is required
+      </div>
+    </div>
+    <button type="submit" class="login-button">Login</button>
+  </form>
+</div>
+
